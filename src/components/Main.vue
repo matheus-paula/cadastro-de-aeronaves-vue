@@ -3,32 +3,44 @@
     <h1>Gestão de Aeronaves</h1>
     <div class="container mt-5">
       <div class="row w-50 m-auto p-4 align-items-center rounded-3 border shadow-lg">
-        <form name="aeronave" class="text-start">
+        <h2>Adicionar Aeronave</h2>
+        <form v-on:submit="submitAeronave" name="aeronave" class="text-start">
             <div class="row">
-              <div class="col-12">
-                <label for="aircraft" class="form-label">Nome</label>
-                <input name="nome" type="text" class="form-control" id="aircraft" placeholder="E170">
+              <div class="col-12 input-group">
+                <span class="input-group-text">Modelo</span>
+                <input required  v-model="form.modelo"  type="text" class="form-control" id="aircraft" placeholder="E170">
               </div>
             </div>
             <div class="row mt-3">
               <div class="col-12">
-                <label for="brand" class="form-label">Marca</label>
-                <Brands/>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-6">
-                <label for="year-field" class="form-label">Ano</label>
-                <select class="form-select" id="year-field">
-                  <option value="0">Ano:</option>
-                  <option :value="year" v-for="year in years" :key="year">{{ year }}</option>  
-                </select>
-              </div>
-              <div class="col-6">
-                <div class="pt-4 mt-3 form-check">
-                  <input name="vendido" class="form-check-input" type="checkbox" id="sold">
-                  <label class="form-check-label" for="sold">Vendido</label>
+                <div class=" input-group">
+                  <span class="input-group-text">Marca</span>
+                  <select required v-model="form.marca"  id="brand" class="form-select" aria-label="Marca">
+                    <Brands/>
+                  </select>
                 </div>
+              </div>
+            </div>
+            <div class="row mt-3 align-items-end">
+              <div class="col-6">
+                <div class="input-group">
+                  <span class="input-group-text">Ano</span>
+                  <select required v-model="form.ano" class="form-select" id="year-field">
+                    <option  disabled value="">Selecione o ano de fabricação</option>
+                    <option  :value="year" v-for="year in years" :key="year">{{ year }}</option>  
+                  </select>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="input-group">
+                  <div class="pb-1 input-group-text">
+                    <input required v-model="form.vendido"  class="form-check-input" type="checkbox" id="sold">                  
+                  </div>
+                  <label class="form-control bg-white" for="sold">Vendido</label>
+                </div>
+              </div>
+              <div class="col-2 text-end">
+                  <button class="btn btn-primary" type="submit">Salvar</button>
               </div>          
             </div>
         </form>
@@ -36,7 +48,7 @@
         <div class="row">
           <div class="col-12">
             <p>Resumo</p>
-            
+          
           </div>
         </div>
         <div class="row">
@@ -64,7 +76,7 @@
               <tbody>
                 <tr v-for="result in results" :key="result">
                   <th>{{result.id}}</th>
-                  <td>{{result.nome}}</td>
+                  <td>{{result.modelo}}</td>
                   <td>{{result.marca}}</td>
                   <td>{{result.ano}}</td>
                   <td>{{result.descricao}}</td>
@@ -90,6 +102,13 @@ export default {
   },
   data() {
     return {
+      form: {
+        modelo: '',
+        marca: '',
+        ano: '',
+        vendido: false,
+        descricao: ''
+      },
       searchTerm: null,
       results: []
     }
@@ -109,6 +128,23 @@ export default {
           console.log(res.data);
           ref.results = res.data;
         });
+    },
+    submitAeronave: function(e){
+      e.preventDefault();
+      var ref = this;
+      console.log(ref.form);
+      axios.post('/cadastro/aeronaves',
+        ref.form,
+        {
+          headers: {
+            'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+          }
+        })
+      .then(function (res){
+        console.log(res)
+      })
+      .catch(function(){
+      })
     }
   }
 }

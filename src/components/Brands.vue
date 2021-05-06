@@ -1,5 +1,5 @@
 <template>
-    <select name="marca" id="brand" class="form-select" aria-label="Marca">
+        <option disabled value="">Selecione uma marca</option>
         <option value="A.V.Roe & Company (United Kingdom)">A.V.Roe & Company (United Kingdom)</option>
         <option value="AAC Amphibiam Airplanes of Canada (Canada)">AAC Amphibiam Airplanes of Canada (Canada)</option>
         <option value="AB Götaverken (Sweden)">AB Götaverken (Sweden)</option>
@@ -1523,7 +1523,6 @@
         <option value="Zénith Aircraft Company (United States)">Zénith Aircraft Company (United States)</option>
         <option value="Zivko Aeronautics Inc (United States)">Zivko Aeronautics Inc (United States)</option>
         <option value="Zlin Aviation sro (Czech Republic)">Zlin Aviation sro (Czech Republic)</option>
-    </select>   
 </template>
 <script>
 export default {
