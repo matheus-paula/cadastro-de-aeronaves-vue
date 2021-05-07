@@ -1,5 +1,6 @@
 <template>
   <Main/>
+  <p class="small my-3">Developed by Matheus de Paula</p>
 </template>
 
 <script>
@@ -21,5 +22,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.tab-pane{
+  min-height:342px;
 }
 </style>
