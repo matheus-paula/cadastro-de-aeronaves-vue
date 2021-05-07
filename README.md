@@ -1,24 +1,21 @@
-# cadastro-de-aeronaves
+# cadastro-de-aeronaves (Front em Vue.js)
 
-## Project setup
+Simples gestão de cadastro de aeronaves (projeto prático)
+
+## Instalar gerenciador de pacotes npm
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### compilando para desenvolvimento
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### compilando para produção
 ```
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+*obs: Este projeto é complementar ao outro projeto publicado [cadastro de aeronaves (Java)](https://github.com/matheuspaula19/cadastro-de-aeronaves)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
