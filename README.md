@@ -1,7 +1,10 @@
-# Cadastro de aeronaves (Front em Vue.js)
+# Cadastro de aeronaves (Front em Vue.js com Bootstrap.js)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Simples gestão de cadastro de aeronaves (projeto prático)
+
+## Screenshot
+![Screenshot do aplicativo](screen.png)
 
 ## Instalar gerenciador de pacotes npm
 ```
