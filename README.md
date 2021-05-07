@@ -1,4 +1,5 @@
-# cadastro-de-aeronaves (Front em Vue.js)
+# Cadastro de aeronaves (Front em Vue.js)
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Simples gestão de cadastro de aeronaves (projeto prático)
 
